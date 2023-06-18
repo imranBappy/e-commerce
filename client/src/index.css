@@ -1,0 +1,42 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100&family=Spectral:wght@200&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@300&display=swap");
+:root {
+  --Roboto: "Roboto", sans-serif;
+  --Spectral: "Spectral", serif;
+  --Poppins: "Poppins", sans-serif;
+  --RedHatDisplay: "Red Hat Display", sans-serif;
+
+  --blue: #1e66ff;
+  --sky: #4dc3f7;
+  --white: #fff;
+  --gray: #5f5f5f;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* default css */
+li {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+}
+
+/* common css */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  height: 100%;
+}
+
+@media screen and (max-width: 1200px) {
+  .container {
+    margin: 0 15px;
+  }
+}

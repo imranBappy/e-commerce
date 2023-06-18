@@ -1,0 +1,27 @@
+.search {
+  background-color: var(--white);
+  height: 28px;
+  width: 100%;
+  display: flex;
+  flex-grow: 1;
+
+  align-items: center;
+  padding-left: 15px;
+  border-radius: 30px;
+  justify-content: space-between;
+}
+.search > input {
+  width: 100%;
+  outline: none;
+  border: none;
+  height: 28px;
+}
+.search_icon {
+  cursor: pointer;
+  background-color: var(--sky);
+  height: 100%;
+  display: flex;
+  align-items: center;
+  border-radius: 30px;
+  padding: 0 25px;
+}

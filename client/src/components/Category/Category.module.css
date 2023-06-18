@@ -1,0 +1,19 @@
+.category_wrap {
+  padding: 15px 0px;
+  display: flex;
+  justify-content: space-evenly;
+}
+.category {
+  font-family: Roboto;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 14px;
+  text-align: center;
+  color: var(--gray);
+}
+
+@media screen and (max-width: 768px) {
+  .category_wrap {
+    display: none;
+  }
+}

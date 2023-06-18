@@ -1,0 +1,6 @@
+.header_container {
+  height: calc(100vh - 80px);
+  background-image: url(../../assets/base.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
