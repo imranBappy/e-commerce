@@ -1,3 +1,24 @@
-.hello {
-  width: 500px;
+.slider_container {
+  width: 100%;
+  display: flex;
+}
+.slider_wrap {
+  height: calc(100vh - 150px);
+  width: 80%;
+  position: relative;
+  overflow: hidden;
+}
+.right_slider_wrap {
+  width: 20%;
+}
+.slide {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  transition: all 0.5s ease-in-out;
 }

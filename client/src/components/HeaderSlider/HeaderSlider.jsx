@@ -1,26 +1,23 @@
 import styles from './HeaderSlider.module.css'
-import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
-import { Carousel } from 'react-responsive-carousel';
-import slider1 from '../../assets/slider1.png'
+import HeaderSlide from '../HeaderSlide/HeaderSlide';
+import MinCarousel from './MinCarousel';
 const HeaderSlider = () => {
     return (
-        <div className={styles.hello}>
-            <Carousel
-                infiniteLoop={true}
-            >
-                <div>
-                    <img src={slider1} />
-                    <p className="legend">Legend 1</p>
+        <div className={styles.slider_container}>
+            <div className={styles.slider_wrap}>
+                <div className={styles.slide}>
+                    <HeaderSlide />
                 </div>
-                <div>
-                    <img src={slider1} />
-                    <p className="legend">Legend 2</p>
+                <div className={styles.slide}>
+                    <HeaderSlide />
                 </div>
-                <div>
-                    <img src={slider1} />
-                    <p className="legend">Legend 3</p>
+                <div className={styles.slide}>
+                    <HeaderSlide />
                 </div>
-            </Carousel>
+            </div>
+            <div className={styles.right_slider_wrap}>
+                <MinCarousel />
+            </div>
         </div>
     );
 };
