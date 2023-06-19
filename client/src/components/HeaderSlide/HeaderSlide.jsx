@@ -1,7 +1,8 @@
 import slider1 from '../../assets/slider1.png'
 import styles from './HeaderSlide.module.css'
 
-const HeaderSlide = () => {
+const HeaderSlide = ({ img_src, index, current, nextSlide, prevSlide }) => {
+
     return (
         <div className={styles.slide_wrap}>
             <div className={styles.slide_text_wrap}>
@@ -22,16 +23,43 @@ const HeaderSlide = () => {
             </div>
             <div className={styles.slide_img_wrap}>
                 <div >
-                    <img className={styles.slide_img} src={slider1} />
+                    <img className={styles.slide_img} src={img_src} />
                 </div>
                 <div className={styles.dots_wrap}>
-                    <button>PREV</button>
+                    <button onClick={prevSlide}>PREV</button>
                     <div className={styles.slider_dots}>
-                        <div className={styles.slider_dot}></div>
-                        <div className={styles.slider_dot}></div>
-                        <div className={styles.slider_dot}></div>
+                        <div style={index === 0 ? {
+                            background: "#1d65ff",
+                            opacity: 1,
+
+                        } : {
+                            background: "#1d65ff",
+                            opacity: 0.4,
+                        }} className={styles.slider_dot}></div>
+                        <div
+                            style={index === 1 ? {
+                                background: "#1d65ff",
+                                opacity: 1,
+
+                            } : {
+                                background: "#1d65ff",
+                                opacity: 0.4,
+                            }}
+                            
+                            className={styles.slider_dot}></div>
+                        <div
+                            
+                            style={index === 2? {
+                                background: "#1d65ff",
+                                opacity: 1,
+
+                            } : {
+                                background: "#1d65ff",
+                                opacity: 0.4,
+                            }}
+                            className={styles.slider_dot}></div>
                     </div>
-                    <button>NEXT</button>
+                    <button onClick={nextSlide}>NEXT</button>
                 </div>
             </div>
         </div>

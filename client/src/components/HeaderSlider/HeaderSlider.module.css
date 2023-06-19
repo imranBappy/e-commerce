@@ -5,18 +5,16 @@
 .slider_wrap {
   height: calc(100vh - 150px);
   width: 80%;
-  position: relative;
+  display: flex;
   overflow: hidden;
+  scroll-behavior: smooth;
 }
 .right_slider_wrap {
   width: 20%;
 }
 .slide {
   height: 100%;
-  width: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
+  min-width: 100% !important;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;

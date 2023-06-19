@@ -67,7 +67,6 @@ const MinCarousel = () => {
     //         </div>
     //     )
     // })
-    console.log({ current });
     return (
         <div className={styles.carousel_container}>
             <button onClick={upSlide}>
