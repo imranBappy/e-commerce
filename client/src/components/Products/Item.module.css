@@ -7,7 +7,10 @@
   border-radius: 34px;
   padding: 30px;
 }
-
+.item_img {
+  width: 289px;
+  height: 162px;
+}
 .item_title {
   margin: 15px 0px;
   font-family: "Poppins";

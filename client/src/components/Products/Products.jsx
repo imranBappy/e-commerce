@@ -2,8 +2,17 @@
 import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io';
 import styles from './Products.module.css'
 import Item from './Item';
-import item1 from '../../assets/products/item1.png'
+import { useGetProductsQuery, productsApi } from '../../features/products/productsApi';
+import { useDispatch } from 'react-redux';
+
 const Products = () => {
+    const { data = {} } = useGetProductsQuery(9);
+    console.log(data);
+    const dispatch = useDispatch();
+    const next = () => {
+        dispatch(productsApi.endpoints.getMoreProducts.initiate({ limit: 9, skip: 9 }))
+    }
+    next()
     return (
         <div className='container'>
             <div className={styles.products_wrap} >
@@ -26,12 +35,12 @@ const Products = () => {
                     </div>
                 </div>
                 <div className={styles.products_container}>
-                    <Item img={item1} title='Wireless Headphones' price="123" />
-                    <Item img={item1} title='Fashion' price="123" />
-                    <Item img={item1} title='Fashion' price="123" />
-                    <Item img={item1} title='Fashion' price="123" />
-                    <Item img={item1} title='Fashion' price="123" />
-                    <Item img={item1} title='Fashion' price="123" />
+                    {
+                        data?.products?.map((item) => <Item key={item.id} item={item} />)
+                    }
+                    {/* <Item img={item1} title='Fashion' price="123" />
+                    <Item img={item1} title='Fashion' price="123" /> */}
+
                 </div>
             </div>
         </div>

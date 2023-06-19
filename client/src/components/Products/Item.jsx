@@ -1,11 +1,12 @@
 import { AiOutlinePlusCircle } from 'react-icons/ai';
 import styles from './Item.module.css';
 
-const Item = ({ img, title, price }) => {
+const Item = (props) => {
+    const { thumbnail, title, price } = props.item;
     return (
         <div className={styles.item_wrap} >
             <div>
-                <img className={styles.item_img} src={img} alt="" />
+                <img className={styles.item_img} src={thumbnail} alt="" />
             </div>
             <div className={styles.item_info}>
                 <h4 className={styles.item_title}>{title}</h4>
