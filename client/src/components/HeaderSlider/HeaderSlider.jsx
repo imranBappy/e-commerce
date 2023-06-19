@@ -6,7 +6,7 @@ const HeaderSlider = () => {
     const [current, setCurrent] = useState(0)
     const [box, setBox] = useState(null)
     useEffect(() => {
-        setBox(document.querySelector('#product-container'));
+        setBox(document.querySelector('#slider-container'));
     }, [])
     const prevSlide = () => {
         setCurrent((prev) => prev == 0 ? 0 : prev - 1);
@@ -21,7 +21,7 @@ const HeaderSlider = () => {
     return (
         <>
             <div className={styles.slider_container}>
-                <div className={styles.slider_wrap} id='product-container'>
+                <div className={styles.slider_wrap} id='slider-container'>
                     <div key={1}
                         className={styles.slide}>
                         <HeaderSlide
@@ -52,7 +52,6 @@ const HeaderSlider = () => {
                             img_src="https://picsum.photos/id/239/500/500"
                         />
                     </div>
-
 
                 </div>
                 <div className={styles.right_slider_wrap}>

@@ -7,38 +7,26 @@
   flex-direction: column;
 }
 .carousel_wrap {
-  min-height: 300px;
   width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  position: relative;
-  overflow: hidden;
+  max-height: calc(100vh - 530px);
+  scroll-behavior: smooth;
+  overflow-y: hidden;
 }
 .slide {
-  position: absolute;
   width: 130px;
   height: 130px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  margin: 0 auto;
   transition: transform 0.5s ease-in-out;
 }
 .slide > div {
   width: 100%;
   height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 15px;
   margin-top: 50px;
 }
+
 .slide > div > p {
-  max-width: 50px;
+  margin-top: 10px;
+  width: 100%;
   font-family: "Poppins";
   font-style: normal;
   font-weight: 600;
@@ -53,7 +41,8 @@
   height: 130px;
   border-radius: 50%;
 }
-button {
+
+.mini_slider_controller {
   width: 30px;
   height: 30px;
   display: flex;
@@ -64,8 +53,17 @@ button {
   border: none;
   cursor: pointer;
 }
-
-button > img {
+button.mini_slider_controller:first-child {
+  margin-bottom: 20px;
+}
+button.mini_slider_controller:last-child {
+  margin-top: 10px;
+}
+button.mini_slider_controller > img {
   width: 11px;
-  margin-bottom: 2px;
+}
+
+
+@media screen and (max-width: 768px) {
+  
 }

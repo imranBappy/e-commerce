@@ -1,6 +1,6 @@
-@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100&family=Spectral:wght@200&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300&family=Spectral:wght@200&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@300&display=swap");
 :root {
   --Roboto: "Roboto", sans-serif;
@@ -12,6 +12,7 @@
   --sky: #4dc3f7;
   --white: #fff;
   --gray: #5f5f5f;
+  --black: #000002;
 }
 
 * {
@@ -35,6 +36,26 @@ a {
   height: 100%;
 }
 
+.carousel_btn {
+  border: none;
+  outline: none;
+  background: #001439;
+  border-radius: 50%;
+  color: var(--white);
+  width: 35px;
+  height: 35px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  font-size: 1.5rem;
+  transition: all 0.2s ease-in-out;
+}
+
+.carousel_btn:hover {
+  background: #f4f4f4;
+  color: var(--black);
+}
 @media screen and (max-width: 1200px) {
   .container {
     margin: 0 15px;

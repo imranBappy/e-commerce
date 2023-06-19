@@ -1,7 +1,6 @@
-import slider1 from '../../assets/slider1.png'
 import styles from './HeaderSlide.module.css'
 
-const HeaderSlide = ({ img_src, index, current, nextSlide, prevSlide }) => {
+const HeaderSlide = ({ img_src, index, nextSlide, prevSlide }) => {
 
     return (
         <div className={styles.slide_wrap}>
@@ -26,7 +25,7 @@ const HeaderSlide = ({ img_src, index, current, nextSlide, prevSlide }) => {
                     <img className={styles.slide_img} src={img_src} />
                 </div>
                 <div className={styles.dots_wrap}>
-                    <button onClick={prevSlide}>PREV</button>
+                    <button className={styles.main_slider_controller} onClick={prevSlide}>PREV</button>
                     <div className={styles.slider_dots}>
                         <div style={index === 0 ? {
                             background: "#1d65ff",
@@ -45,11 +44,11 @@ const HeaderSlide = ({ img_src, index, current, nextSlide, prevSlide }) => {
                                 background: "#1d65ff",
                                 opacity: 0.4,
                             }}
-                            
+
                             className={styles.slider_dot}></div>
                         <div
-                            
-                            style={index === 2? {
+
+                            style={index === 2 ? {
                                 background: "#1d65ff",
                                 opacity: 1,
 
@@ -59,7 +58,7 @@ const HeaderSlide = ({ img_src, index, current, nextSlide, prevSlide }) => {
                             }}
                             className={styles.slider_dot}></div>
                     </div>
-                    <button onClick={nextSlide}>NEXT</button>
+                    <button className={styles.main_slider_controller} onClick={nextSlide}>NEXT</button>
                 </div>
             </div>
         </div>

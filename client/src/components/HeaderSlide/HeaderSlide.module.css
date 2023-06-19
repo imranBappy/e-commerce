@@ -32,7 +32,7 @@
 .slide_text_info_title {
   font-family: Spectral;
   font-weight: 800;
-  font-size: 64px;
+  font-size: 4rem;
   line-height: 74px;
 }
 
@@ -94,12 +94,14 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  gap:50px
+  gap: 50px;
 }
 
 .slide_img {
   border: 14px solid #2062ff66;
   border-radius: 50%;
+  max-width: 400px;
+  max-height: 400px;
 }
 
 .dots_wrap {
@@ -108,7 +110,7 @@
   justify-content: center;
   gap: 35px;
 }
-.dots_wrap > button {
+.main_slider_controller {
   background: none;
   border: none;
   font-family: "Poppins";
@@ -132,5 +134,59 @@
   opacity: 0.4;
   border-radius: 50%;
   cursor: pointer;
+}
 
+@media screen and (max-width: 1000px) {
+  .slide_img {
+    max-width: 300px;
+    max-height: 300px;
+  }
+  .slide_text_info_title {
+    font-size: 3rem;
+    line-height: 45px;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .slide_wrap {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+@media screen and (max-width: 660px) {
+  /* .slide_text_wrap {
+    display: none;
+  } */
+  .slide_wrap {
+    flex-direction: column-reverse;
+    gap: 20px;
+    margin-bottom: 100px;
+  }
+}
+@media screen and (max-width: 660px) {
+  /* .slide_text_wrap {
+    display: none;
+  } */
+  .slide_text_info {
+    gap: 10px;
+  }
+  .slide_text_info_title {
+    font-size: 2rem;
+    line-height: 35px;
+  }
+
+  .slide_img_wrap {
+    gap: 20px;
+  }
+
+  .slide_text_info_second {
+    font-size: 0.9rem;
+    line-height: 22px;
+  }
+  .slide_text_wrap {
+    gap: 20px;
+  }
 }

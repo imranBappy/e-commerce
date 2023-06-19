@@ -1,80 +1,36 @@
 import styles from './MinCarousel.module.css';
-// import { IoIosArrowDown, IoIosArrowUp } from 'react-icons/io';
-import upArrow from '../../assets/icons/arrow-up.png'
-import downArrow from '../../assets/icons/arrow-down.png'
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { IoIosArrowDown, IoIosArrowUp } from 'react-icons/io';
 
 const MinCarousel = () => {
-
     const [current, setCurrent] = useState(0)
+    const len = 1;
+    const [box, setBox] = useState(null)
+    useEffect(() => {
+        setBox(document.querySelector('#min-slider-container'));
+    }, [])
+
     const upSlide = () => {
-        setCurrent(current === length - 1 ? 0 : current + 1)
+        setCurrent((prev) => prev == 0 ? 0 : prev - 1);
+        let width = box.clientWidth;
+
+        box.scrollTop = box.scrollTop - width - 100;
     }
     const downSlide = () => {
-        setCurrent(current === 0 ? length - 1 : current - 1)
+        setCurrent((prev) => prev == 2 ? 2 : prev + 1);
+        let width = box.clientWidth;
+        box.scrollTop = box.scrollTop + width + 100;
     }
-    const slides = [
-        <div className={styles.slide} style={{ background: "red" }}>
-            <div >
-                <img src="https://picsum.photos/id/237/200/200" alt="" />
-                <p>Fuji 14mm Lens</p>
-            </div>
-            <div >
-                <img src="https://picsum.photos/id/236/200/200" alt="" />
-                <p>Fuji 14mm Lens</p>
-            </div>
-        </div>,
-        <div className={styles.slide}>
-            <div >
-                <img src="https://picsum.photos/id/231/200/200" alt="" />
-                <p>Fuji 14mm Lens</p>
-            </div>
-            <div >
-                <img src="https://picsum.photos/id/232/200/200" alt="" />
-                <p>Fuji 14mm Lens</p>
-            </div>
-        </div>
-    ]
 
-    const slides2 = [
-        < >
-            <div >
-                <img src="https://picsum.photos/id/237/200/200" alt="" />
-                <p>Fuji 14mm Lens</p>
-            </div>
-            <div >
-                <img src="https://picsum.photos/id/236/200/200" alt="" />
-                <p>Fuji 14mm Lens</p>
-            </div>
-        </>,
-        < >
-            <div >
-                <img src="https://picsum.photos/id/231/200/200" alt="" />
-                <p>Fuji 14mm Lens</p>
-            </div>
-            <div >
-                <img src="https://picsum.photos/id/232/200/200" alt="" />
-                <p>Fuji 14mm Lens</p>
-            </div>
-        </>
-    ]
-    // let newX = slides2.map((slide, index) => {
-    //     // console.log();
-    //     //  = { transform: `translateY(${300 * index}%)` }
-    //     return (
-    //         <div className={styles.slide} style={{ transform: `translateY(${300 * index}%)` }}>
-    //             {slide}
-    //         </div>
-    //     )
-    // })
+
     return (
         <div className={styles.carousel_container}>
-            <button onClick={upSlide}>
-                <img src={upArrow} alt="upArrow" />
+            <button className='carousel_btn' style={0 === current ? { visibility: "hidden" } : { divisibilitysplay: "visible" }} onClick={upSlide}>
+                <IoIosArrowDown />
             </button>
-            <div className={styles.carousel_wrap}>
-                <div style={current == 0 ? { top: 0 } : { top: (100 * 1) * -1 }} className={styles.slide}>
-                    <div >
+            <div className={styles.carousel_wrap} id='min-slider-container'>
+                <div className={styles.slide}>
+                    <div style={{ marginTop: 0 }} >
                         <img src="https://picsum.photos/id/237/200/200" alt="" />
                         <p>Fuji 14mm Lens</p>
                     </div>
@@ -83,7 +39,17 @@ const MinCarousel = () => {
                         <p>Fuji 14mm Lens</p>
                     </div>
                 </div>
-                <div style={current == 1 ? { top: 0 } : { visibility: 'hidden' }} className={styles.slide}>
+                <div className={styles.slide}>
+                    <div >
+                        <img src="https://picsum.photos/id/231/200/200" alt="" />
+                        <p>Fuji 14mm Lens</p>
+                    </div>
+                    <div >
+                        <img src="https://picsum.photos/id/232/200/200" alt="" />
+                        <p>Fuji 14mm Lens</p>
+                    </div>
+                </div>
+                <div className={styles.slide}>
                     <div >
                         <img src="https://picsum.photos/id/231/200/200" alt="" />
                         <p>Fuji 14mm Lens</p>
@@ -94,16 +60,11 @@ const MinCarousel = () => {
                     </div>
                 </div>
 
-                {/* {slides[current]} */}
-
-                {/* <div className={styles.slide} style={{ transform: `translateY(${300 * current}%)` }}>
-                    {slides2[current]}
-                </div> */}
             </div>
-            <button onClick={downSlide}>
-                <img src={downArrow} alt="downArrow" />
+            <button className='carousel_btn' style={len === current ? { visibility: "hidden" } : { divisibilitysplay: "visible" }} onClick={downSlide}>
+                <IoIosArrowUp />
             </button>
-        </div>
+        </div >
 
     );
 };
