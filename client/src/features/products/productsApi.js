@@ -3,7 +3,7 @@ import apiSlice from "../api/apiSlice";
 export const productsApi = apiSlice.injectEndpoints({
     endpoints: (builder) => ({
         getProducts: builder.query({
-            query: (limit) => `/products?limit=${limit}`,
+            query: ({ skip, limit }) => `/products?skip=${skip}&limit=${limit}`,
         }),
         // for more products
         getMoreProducts: builder.query({

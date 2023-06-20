@@ -2,17 +2,34 @@
 import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io';
 import styles from './Products.module.css'
 import Item from './Item';
-import { useGetProductsQuery, productsApi } from '../../features/products/productsApi';
+import { productsApi } from '../../features/products/productsApi';
 import { useDispatch } from 'react-redux';
+import { useEffect, useState } from 'react';
 
 const Products = () => {
-    const { data = {} } = useGetProductsQuery(9);
-    console.log(data);
+    const [current, setCurrent] = useState(0)
+    const [products, setProducts] = useState([])
     const dispatch = useDispatch();
+    const [total, setTotal] = useState(0)
+    useEffect(() => {
+        dispatch(productsApi.endpoints.getProducts.initiate({ skip: current * 9, limit: 9 }))
+            .unwrap()
+            .then((data) => {
+                setTotal(data?.total)
+                setProducts([...data?.products])
+            })
+
+    }, [current, dispatch])
+
     const next = () => {
-        dispatch(productsApi.endpoints.getMoreProducts.initiate({ limit: 9, skip: 9 }))
+        if (total >= (current + 1) * 9) {
+            setCurrent(current + 1);
+        }
     }
-    next()
+    const prev = () => {
+        if (current > 0)
+            setCurrent(current - 1);
+    }
     return (
         <div className='container'>
             <div className={styles.products_wrap} >
@@ -25,10 +42,10 @@ const Products = () => {
                             Life is hard enough already. Let us make it a little easier.
                         </p>
                         <div className={styles.controllers}>
-                            <button style={{ width: 20, height: 20, fontSize: 16 }} className={`carousel_btn`}>
+                            <button onClick={prev} style={{ width: 20, height: 20, fontSize: 16 }} className={`carousel_btn`}>
                                 <IoIosArrowBack />
                             </button>
-                            <button style={{ width: 20, height: 20, fontSize: 16 }} className={`carousel_btn`}>
+                            <button onClick={next} style={{ width: 20, height: 20, fontSize: 16 }} className={`carousel_btn`}>
                                 <IoIosArrowForward />
                             </button>
                         </div>
@@ -36,7 +53,7 @@ const Products = () => {
                 </div>
                 <div className={styles.products_container}>
                     {
-                        data?.products?.map((item) => <Item key={item.id} item={item} />)
+                        products?.map((item) => <Item key={item.id} item={item} />)
                     }
                     {/* <Item img={item1} title='Fashion' price="123" />
                     <Item img={item1} title='Fashion' price="123" /> */}
