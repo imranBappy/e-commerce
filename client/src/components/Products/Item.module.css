@@ -2,7 +2,6 @@
   background: #ffffff;
   border: 1px solid #f3f3f3;
   /* card shadow */
-
   box-shadow: 0px 60px 80px -14px rgba(0, 0, 0, 0.08);
   border-radius: 34px;
   padding: 30px;
@@ -72,4 +71,12 @@
   text-decoration-line: line-through;
 
   color: #ff4516;
+}
+
+@media screen and (max-width: 350px) {
+  .item_img {
+    width: 100%;
+    flex-wrap: 1;
+    flex-grow: 1;
+  }
 }

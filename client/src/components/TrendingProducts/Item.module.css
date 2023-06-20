@@ -81,3 +81,12 @@
   align-items: end;
   margin-bottom: -170px;
 }
+
+@media screen and (max-width: 768px) {
+  .item_wrap:first-child {
+    margin-left: 0;
+  }
+  .item_wrap:last-child {
+    margin-right: 0;
+  }
+}
